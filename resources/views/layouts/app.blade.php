@@ -12,7 +12,7 @@
 
         <!-- Favicon -->
         <link id="favicon" rel="shortcut icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" type="image/x-icon">
-        @vite
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
     
@@ -35,7 +35,6 @@
             <h1 class="text-2xl lg:text-4xl font-semibold text-center bg-gradient-to-r from-teal-500 to-blue-600 bg-clip-text text-transparent">
                 Track, Understand, and Grow Your Finances
             </h1>
-            <h2 class="text-red-900">Monerta</h2>
 
             <!-- Description -->
             <p class="mt-3 text-sm lg:text-base text-gray-600 dark:text-gray-400 text-center max-w-md leading-relaxed">
