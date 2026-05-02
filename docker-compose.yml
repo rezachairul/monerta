@@ -1,0 +1,70 @@
+# docker-compose.yml
+
+services:
+  app:
+    image: laravel/monetra:dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        UID: 1000
+        GID: 1000
+    container_name: monetra-app
+    volumes:
+      - .:/var/www
+    environment:
+      - PHP_MEMORY_LIMIT=256M
+    ports:
+      - "${APP_PORT}:8000"
+    depends_on:
+      - db
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+        reservations:
+          memory: 256M
+  
+  node:
+    image: node:24
+    container_name: monetra-node
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    environment:
+      - VITE_PORT=${VITE_PORT}
+      - NODE_OPTIONS=--max-old-space-size=512
+    command: sh -c "npm install && npm run dev -- --host"
+    ports:
+      - "${VITE_PORT}:${VITE_PORT}"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 768M
+        reservations:
+          memory: 512M
+
+  db:
+    image: mysql:8.0
+    container_name: monetra-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: monetra
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "${DB_PORT}:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 768M
+        reservations:
+          memory: 512M
+
+volumes:
+  dbdata:
