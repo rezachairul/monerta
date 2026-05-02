@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Http\Requests\StoreExpensesRequest;
-use App\Http\Requests\UpdateExpensesRequest;
-use App\Models\Expenses;
+use App\Models\admin\Income;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
-class ExpensesController extends Controller
+class IncomesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class ExpensesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreExpensesRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class ExpensesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Expenses $expenses)
+    public function show(Income $income)
     {
         //
     }
@@ -43,7 +43,7 @@ class ExpensesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Expenses $expenses)
+    public function edit(Income $income)
     {
         //
     }
@@ -51,7 +51,7 @@ class ExpensesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateExpensesRequest $request, Expenses $expenses)
+    public function update(Request $request, Income $income)
     {
         //
     }
@@ -59,7 +59,7 @@ class ExpensesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Expenses $expenses)
+    public function destroy(Income $income)
     {
         //
     }

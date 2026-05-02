@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Incomes;
+use App\Models\admin\Income;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
@@ -19,7 +19,7 @@ class IncomesPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Incomes $incomes): bool
+    public function view(User $user, Income $income): bool
     {
         return false;
     }
@@ -35,7 +35,7 @@ class IncomesPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Incomes $incomes): bool
+    public function update(User $user, Income $income): bool
     {
         return false;
     }
@@ -43,7 +43,7 @@ class IncomesPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Incomes $incomes): bool
+    public function delete(User $user, Income $income): bool
     {
         return false;
     }
@@ -51,7 +51,7 @@ class IncomesPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Incomes $incomes): bool
+    public function restore(User $user, Income $income): bool
     {
         return false;
     }
@@ -59,7 +59,7 @@ class IncomesPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Incomes $incomes): bool
+    public function forceDelete(User $user, Income $income): bool
     {
         return false;
     }
