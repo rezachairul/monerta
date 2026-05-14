@@ -1,4 +1,4 @@
-<x-layouts>
+<x-layouts.app>
     <!-- Card Container -->
     <div class="backdrop-blur-xl bg-white/70 dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-xl rounded-2xl p-8 flex flex-col items-center">
 
@@ -21,4 +21,4 @@
 
     </div>
 
-</x-layouts>
+</x-layouts.app>

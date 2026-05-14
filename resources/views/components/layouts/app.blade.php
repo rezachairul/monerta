@@ -1,4 +1,4 @@
-<!-- Layouts -->
+<!-- Layouts.app -->
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -17,7 +17,7 @@
     
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] dark:text-white transition-colors duration-500">
         
-    <!-- Navbar -->
+        <!-- Navbar -->
         <x-navbar />                        
 
         <!-- Main Content -->
