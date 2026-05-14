@@ -12,7 +12,7 @@
         bg-white/70 dark:bg-white/5 
         border-t border-gray-200 dark:border-white/10 
         shadow-lg 
-        rounded-t-2xl 
+        rounded-r-2xl
         py-5 px-6
         text-center
     ">

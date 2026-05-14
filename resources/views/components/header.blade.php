@@ -1,3 +1,5 @@
 <!-- Header -->
 
-<h1>Hello World</h1>
+<h1 class="text-3xl font-bold text-gray-800 dark:text-white">
+    {{ $slot }}
+</h1>

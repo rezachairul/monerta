@@ -27,7 +27,7 @@ Route::get('/', function () {
 });
 
 Route::get('/monerta', function () {
-    return view('layouts.app');
+    return view('admin.dashboard.index');
 });
 
 // Error Page Route
