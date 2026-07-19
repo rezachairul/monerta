@@ -1,0 +1,14 @@
+# dockerignore
+
+node_modules
+vendor
+.git
+*.log
+.next
+.gitignore
+Dockerfile
+docker-compose.yml
+README.md
+npm-debug.log
+yarn-error.log
+.env

@@ -1,0 +1,67 @@
+# docker-compose.yaml
+
+services:
+  app:
+    image: monetra:dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: monetra-app
+
+    working_dir: /app
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+    env_file:
+      - .env
+
+    environment:
+      NODE_ENV: development
+      NEXT_TELEMETRY_DISABLED: 1
+      DATABASE_URL: ${DATABASE_URL}
+
+    ports:
+      - "${APP_PORT}:3000"
+
+    depends_on:
+      - db
+
+    command: sh -c "npx prisma generate && npm run dev"
+
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1024M
+        reservations:
+          memory: 512M
+
+  db:
+    image: postgres:17-alpine
+    container_name: monetra-db
+
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: monetra
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 768M
+        reservations:
+          memory: 512M
+
+volumes:
+  postgres_data:
