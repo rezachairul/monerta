@@ -14,6 +14,7 @@ import {
   IconHomeDollar,
   IconChevronDown,
   IconHistory,
+  IconReportAnalytics,
 } from '@tabler/icons-react';
 
 export default function Sidebar() {
@@ -64,8 +65,7 @@ export default function Sidebar() {
               <li>
                 <button
                   onClick={() => setIsTxOpen(!isTxOpen)}
-                  className={`flex honesty w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 transition-all hover:bg-gray-50 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-900 dark:hover:text-gray-100`}
-                >
+                  className={`flex honesty w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 transition-all hover:bg-gray-50 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-900 dark:hover:text-gray-100`}>
                   <div className="flex items-center gap-3">
                     <IconCashRegister className="h-5 w-5" />
                     <span>Transactions</span>
@@ -80,12 +80,7 @@ export default function Sidebar() {
                   {/* Sub-menu 1: All Transactions */}
                   <Link 
                     href="/admin/transactions" 
-                    className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium border-l-2 transition-all ${
-                      isActive('/admin/transactions') 
-                        ? 'border-emerald-500 text-emerald-600 bg-emerald-50/30 dark:bg-emerald-950/20 dark:text-emerald-400' 
-                        : 'border-transparent text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'
-                    }`}
-                  >
+                    className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium border-l-2 transition-all ${isActive('/admin/transactions') ? 'border-emerald-500 text-emerald-600 bg-emerald-50/30 dark:bg-emerald-950/20 dark:text-emerald-400' : 'border-transparent text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'}`}>
                     <IconHistory className="h-4 w-4" />
                     All History
                   </Link>
@@ -93,12 +88,7 @@ export default function Sidebar() {
                   {/* Sub-menu 2: Income */}
                   <Link 
                     href="/admin/income" 
-                    className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium border-l-2 transition-all ${
-                      isActive('/admin/income') 
-                        ? 'border-green-500 text-green-600 bg-green-50/30 dark:bg-green-950/20 dark:text-green-400' 
-                        : 'border-transparent text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'
-                    }`}
-                  >
+                    className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium border-l-2 transition-all ${isActive('/admin/income') ? 'border-green-500 text-green-600 bg-green-50/30 dark:bg-green-950/20 dark:text-green-400' : 'border-transparent text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'}`}>
                     <IconMoneybagPlus className="h-4 w-4 text-green-500" />
                     Income
                   </Link>
@@ -106,16 +96,21 @@ export default function Sidebar() {
                   {/* Sub-menu 3: Expense */}
                   <Link 
                     href="/admin/expense" 
-                    className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium border-l-2 transition-all ${
-                      isActive('/admin/expense') 
-                        ? 'border-rose-500 text-rose-600 bg-rose-50/30 dark:bg-rose-950/20 dark:text-rose-400' 
-                        : 'border-transparent text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'
-                    }`}
-                  >
+                    className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium border-l-2 transition-all ${isActive('/admin/expense') ? 'border-rose-500 text-rose-600 bg-rose-50/30 dark:bg-rose-950/20 dark:text-rose-400' : 'border-transparent text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'}`}>
                     <IconReceiptDollar className="h-4 w-4 text-rose-500" />
                     Expense
                   </Link>
                 </div>
+              </li>
+
+              {/* Report */}
+              <li>
+                <Link 
+                  href="/admin/reports" 
+                  className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium border-l-2 transition-all ${isActive('/admin/reports') ? 'border-blue-500 text-blue-600 bg-blue-50/30 dark:bg-blue-950/20 dark:text-blue-400' : 'border-transparent text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'}`}>
+                  <IconReportAnalytics className="h-5 w-5" />
+                  Reports
+                </Link>
               </li>
             </ul>
           </div>
@@ -126,13 +121,8 @@ export default function Sidebar() {
         <div className="border-t border-gray-100 pt-4 dark:border-gray-800">
           <Link 
             href="/admin/settings" 
-            className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${
-              isActive('/admin/settings') 
-                ? 'bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-white' 
-                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-900 dark:hover:text-gray-100'
-            }`}
-          >
-            <IconSettings className="h-5 w-5" />
+            className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${isActive('/admin/settings') ? 'bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-white' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-900 dark:hover:text-gray-100'}`}>
+            <IconSettings className="h-5 w-5 text-amber-500 dark:text-amber-400" />
             Profile & Settings
           </Link>
         </div>
